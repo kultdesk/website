@@ -1,0 +1,28 @@
+version: '3'
+
+services:  
+  proxy:
+    image: nginx:1.20
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - challenge:/var/www/html
+      - certbot-etc:/etc/letsencrypt
+      - ./nginx:/etc/nginx/conf.d
+    entrypoint: "/bin/sh -c 'while :; do sleep 12h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+
+  certbot:
+    depends_on:
+      - proxy
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - challenge:/var/www/html
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
+volumes:
+  certbot-etc:
+  challenge:

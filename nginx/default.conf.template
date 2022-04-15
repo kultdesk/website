@@ -1,0 +1,29 @@
+server {
+    listen 80;
+    server_name kultdesk.hu;
+
+    location ~ /.well-known/acme-challenge {
+            allow all;
+            root /var/www/html;
+    }
+
+    location / {
+        rewrite ^ https://$host$request_uri? permanent;
+    }
+
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name kultdesk.hu;
+
+    ssl_certificate /etc/letsencrypt/live/kultdesk.hu/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/kultdesk.hu/privkey.pem;
+
+    location / {
+        root /var/www/html;
+    }
+
+}
+
