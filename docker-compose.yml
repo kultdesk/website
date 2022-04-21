@@ -3,12 +3,14 @@ version: '3'
 services:  
   proxy:
     image: nginx:1.20
-    restart: always
+    container_name: kultdesk_nginx
+    restart: unless-stopped
     ports:
       - 80:80
       - 443:443
     volumes:
-      - challenge:/var/www/html
+      - wordpress:/var/www/html
+      - /var/www/html/alterum:/var/www/html/alterum
       - certbot-etc:/etc/letsencrypt
       - ./nginx:/etc/nginx/conf.d
     entrypoint: "/bin/sh -c 'while :; do sleep 12h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
@@ -17,12 +19,39 @@ services:
     depends_on:
       - proxy
     image: certbot/certbot
-    container_name: certbot
+    container_name: kultdesk_certbot
     volumes:
       - certbot-etc:/etc/letsencrypt
-      - challenge:/var/www/html
+      - wordpress:/var/www/html
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
+  db:
+    image: mysql:5.7
+    container_name: kultdesk_wordpress_db
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - MYSQL_DATABASE=kd_db
+    volumes: 
+      - dbdata:/var/lib/mysql
+    
+  wordpress:
+    depends_on: 
+      - db
+    image: wordpress:5.9.3-fpm-alpine
+    container_name: kultdesk_wordpress
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - WORDPRESS_DB_HOST=db:3306
+      - WORDPRESS_DB_USER=$MYSQL_USER
+      - WORDPRESS_DB_PASSWORD=$MYSQL_PASSWORD
+      - WORDPRESS_DB_NAME=kd_db
+    volumes:
+      - wordpress:/var/www/html
+
 
 volumes:
   certbot-etc:
-  challenge:
+  wordpress:
+  dbdata:
