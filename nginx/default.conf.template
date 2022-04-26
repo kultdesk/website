@@ -22,8 +22,8 @@ server {
 
     root /var/www/html;
     
-    ssl_certificate /etc/letsencrypt/live/kultdesk.hu/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/kultdesk.hu/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/www.kultdesk.hu/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/www.kultdesk.hu/privkey.pem;
 
     location /alterum {
         root /var/www/html;
