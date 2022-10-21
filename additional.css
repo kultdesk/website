@@ -1,0 +1,11 @@
+/* Disable duotone filter on images */ 
+.wp-block-image img, .wp-block-post-featured-image img {
+	filter:none !important; 
+	
+}
+
+/* Restyle image caption text color */ 
+.wp-block-image figcaption {
+	color:black !important; 
+	
+}
