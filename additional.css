@@ -7,5 +7,28 @@
 /* Restyle image caption text color */ 
 .wp-block-image figcaption {
 	color:black !important; 
-	
+}
+
+.mmnicon {
+  background: url('https://kultdesk.hu/wp-content/uploads/2022/10/mmnicon.png');
+  height: 22px;
+  width: 60px;
+  display: inline-block;
+  /* Other styles here */
+}
+
+.mutoicon {
+  background: url('https://kultdesk.hu/wp-content/uploads/2022/10/mutoicon.png');
+  height: 22px;
+  width: 60px;
+  display: inline-block;
+  /* Other styles here */
+}
+
+.lahmaicon {
+  background: url('https://kultdesk.hu/wp-content/uploads/2022/10/lahmaicon.png');
+  height: 22px;
+  width: 60px;
+  display: inline-block;
+  /* Other styles here */
 }
