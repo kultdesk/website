@@ -12,4 +12,4 @@ Recommended development workflow:
 3. Export theme files (see in link above). 
 4. Extract the files and overwrite the content of `/wordpress-theme`. 
 5. Push changes to GitHub. Create new release (based on version number in step 2) as needed. 
-6. 1) import zipped theme file back to WP so that theme plugin gets updated (Upload Theme) 2) manually copy-paste content of `additonal.css` (see above), 3) delete old version of theme. 
+6. 1: import zipped theme file back to WP so that theme plugin gets updated (Upload Theme) 2: manually copy-paste content of `additonal.css` (see above), 3: delete old version of theme. 
