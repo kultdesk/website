@@ -33,6 +33,14 @@
   /* Other styles here */
 }
 
+.blindicon {
+  background: url('https://kultdesk.hu/wp-content/uploads/2023/04/blindicon.png');
+  height: 22px;
+  width: 60px;
+  display: inline-block;
+  /* Other styles here */
+}
+
 .wp-block-post-title, .wp-block-post-date{
 	display: inline-block;
 }
