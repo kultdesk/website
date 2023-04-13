@@ -53,3 +53,15 @@
 	text-decoration-line: none !important;
 	font-style: italic;
 }
+
+a {
+	text-decoration-line: none;
+}
+
+a:hover{
+	text-decoration-line: underline;
+}
+
+h1.wp-block-post-title{
+	display: block;
+}
