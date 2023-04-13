@@ -32,3 +32,16 @@
   display: inline-block;
   /* Other styles here */
 }
+
+.wp-block-post-title, .wp-block-post-date{
+	display: inline-block;
+}
+
+.wp-block-post-title{
+	font-weight: normal;
+}
+
+.wp-block-post-date {
+	text-decoration-line: none !important;
+	font-style: italic;
+}
