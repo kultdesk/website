@@ -11,7 +11,8 @@ Initial installation steps:
 2. Add nginx config file (see in a previous installation). Note: use `localhost` if you work locally.
 3. Add `.env` file with passwords (see in a previous installation). Note: although you could use your own passwords, it's encouraged to use the ones in previous installations.
 4. Zip `/wordpress-theme` folder and install and activate as Wordpress theme.
-5. Copy-paste content of `additonal.css` into Additional CSS at `[DOMAIN]/wp-admin/customize.php`. Note: the page should be available via Appearance -> Customize, but it's hidden in some Wordpress installations (the direct URL works though).  
+5. Copy-paste content of `additonal.css` into Additional CSS at `[DOMAIN]/wp-admin/customize.php`. Note: the page should be available via Appearance -> Customize, but it's hidden in some Wordpress installations (the direct URL works though).
+6. You may need to update the Wordpress version (through the admin page). Note: the last known stable Wordpress version for this theme is 6.4.1. 
 
 Recommended development workflow:
 
