@@ -5,6 +5,14 @@ Assets:
 - `/wordpress-theme`: KultDesk WordPress theme to be installed in the WordPress instance (not used by docker-compose). Theme constructed using the Skatepark theme by Automattic following this method: https://developer.wordpress.org/themes/block-themes/creating-new-themes-using-the-site-editor/
 - `additonal.css`: CSS file available in the Customize view of the Theme (note: it doesn't get exported - see step 2 below)
 
+Initial installation steps: 
+
+1. Clone repository.
+2. Add nginx config file (see in a previous installation). Note: use `localhost` if you work locally.
+3. Add `.env` file with passwords (see in a previous installation). Note: although you could use your own passwords, it's encouraged to use the ones in previous installations.
+4. Zip `/wordpress-theme` folder and install and activate as Wordpress theme.
+5. Copy-paste content of `additonal.css` into Additional CSS at `[DOMAIN]/wp-admin/customize.php`. Note: the page should be available via Appearance -> Customize, but it's hidden in some Wordpress installations (the direct URL works though).  
+
 Recommended development workflow:
 
 1. Change content and look&feel in WP's new theme editor (still beta). Note: this step is ideally done in a local instance. 
